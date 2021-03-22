@@ -26,14 +26,10 @@ public class TrafficControlController {
         LongStream.range(30, 100).forEachOrdered(i -> controlMap.put(i, "B"));
 
         Map<Integer, String> controlResult = Maps.newHashMap();
-        Random rand = new Random();
         HashFunction hashFunction = Hashing.murmur3_128(100);
 
-        Stopwatch stopwatch = new Stopwatch();
-        stopwatch.start();
         for (int i = 0; i < 100; i++) {
-            int integer = Math.abs(rand.nextInt());
-            HashCode hashCode = hashFunction.hashLong(integer);
+            HashCode hashCode = hashFunction.hashLong(i);
             long option = Math.abs(hashCode.asLong() % 100);
             String type = controlMap.get(option);
 
