@@ -13,8 +13,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @Slf4j
-@RequestMapping
-@RestController("/ideas/priority-api")
+@RequestMapping("/ideas/priority-api")
+@RestController
 public class PriorityRestController {
     @Autowired
     private HttpExecutors httpExecutors;
